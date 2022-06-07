@@ -103,4 +103,45 @@ public class PostsApiControllerTest extends TestCase {
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
     }
+
+    @Test
+    public void 게시글_삭제() {
+
+        // given
+        PostsSaveRequestDto requestDto1 = PostsSaveRequestDto.builder()
+                .title("title1")
+                .content("content1")
+                .author("author1")
+                .build();
+
+        PostsSaveRequestDto requestDto2 = PostsSaveRequestDto.builder()
+                .title("title2")
+                .content("content2")
+                .author("author2")
+                .build();
+
+        String url = "http://localhost:" + port + "/api/v1/posts";
+
+        // 등록
+        ResponseEntity<Long> responseEntity1 = restTemplate.postForEntity(url, requestDto1, Long.class);
+        ResponseEntity<Long> responseEntity2 = restTemplate.postForEntity(url, requestDto2, Long.class);
+
+        List<Posts> posts = postsRepository.findAll();
+
+        Long deleteId = posts.get(0).getId();
+
+        // when
+        // 등록된 2개의 데이터에서 한개를 삭제한다.
+        String deleteUrl = "http://localhost:" + port + "/api/v1/posts/" + deleteId;
+        restTemplate.delete(deleteUrl);
+
+        // then
+        // 남은 데이터를 확인한다.
+        List<Posts> result = postsRepository.findAll();
+
+        Assertions.assertThat(result.size()).isEqualTo(1);
+//        틀린 테스트
+//        Assertions.assertThat(result.get(0).getTitle()).isEqualTo("title1");
+        Assertions.assertThat(result.get(0).getTitle()).isEqualTo("title2");
+    }
 }
