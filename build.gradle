@@ -30,5 +30,6 @@ dependencies {
     implementation('com.h2database:h2')
     // 머스테치 연동
     implementation('org.springframework.boot:spring-boot-starter-mustache')
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
