@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.io.Serializable;
 
 /**
- * 인증된 사용자 정보만 필요한 클래스
+ * 인증된 사용자 정보만 필요로 하는 클래스
  */
 @Getter
 public class SessionUser implements Serializable {
@@ -14,7 +14,6 @@ public class SessionUser implements Serializable {
     private String name;
     private String email;
     private String picture;
-
 
     public SessionUser(User user) {
         this.name = user.getName();
