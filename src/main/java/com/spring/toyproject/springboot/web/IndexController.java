@@ -1,5 +1,6 @@
 package com.spring.toyproject.springboot.web;
 
+import com.spring.toyproject.springboot.config.auth.LoginUser;
 import com.spring.toyproject.springboot.config.auth.dto.SessionUser;
 import com.spring.toyproject.springboot.service.posts.PostsService;
 import com.spring.toyproject.springboot.web.dto.PostsResponseDto;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Controller
@@ -24,14 +27,20 @@ public class IndexController {
      * @return
      */
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-
+        // 아래 반복되던 코드 개선
+        // SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user != null) {
-            model.addAttribute("userName", user.getName());
+            Map<String, Object> resultMap = new HashMap<>();
+
+            resultMap.put("userName", user.getName());
+            resultMap.put("userEmail", user.getEmail());
+
+            model.addAttribute("userData", resultMap);
         }
+
         return "index";
     }
 

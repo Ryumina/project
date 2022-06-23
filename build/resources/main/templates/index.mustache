@@ -4,12 +4,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>MINAMIN Web Service</title>
+    <!-- ME: 나 RROR: ERROR도 나지만 ING: 멈추지 않지. -->
+    <!-- 나를 위한 사이트 -->
+    <title>ME RROR ING</title>
 </head>
 <body>
     {{>layout/header}}
-
-    <!-- content -->
 
 <!--        <h1>스프링 부트로 시작하는 웹 서비스</h1>-->
     <div class="col-md-12">
@@ -17,13 +17,13 @@
         <div class="row">
             <div>
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-                {{#userName}}
-                    Logged in as: <span id="user">{{userName}}</span>
-                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                {{/userName}}
-                {{^userName}}
-                    <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                {{/userName}}
+                    {{#userData}}
+                            <span id="user">{{userData.userName}}</span>
+                            <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                    {{/userData}}
+                    {{^userData}}
+                            <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+                    {{/userData}}
             </div>
         </div>
         <br>

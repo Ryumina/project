@@ -17,13 +17,13 @@
         <div class="row">
             <div>
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-                    {{#userName}}
-                            Logged in as: <span id="user">{{userName}}</span>
+                    {{#userData}}
+                            <span id="user">{{userData.userName}}</span>
                             <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                    {{/userName}}
-                    {{^userName}}
+                    {{/userData}}
+                    {{^userData}}
                             <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                {{/userName}}
+                    {{/userData}}
             </div>
         </div>
         <br>
