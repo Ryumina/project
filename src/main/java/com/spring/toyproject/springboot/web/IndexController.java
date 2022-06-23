@@ -22,12 +22,20 @@ public class IndexController {
     private final HttpSession httpSession;
 
     /**
-     * 게시글 조회 화면 이동
+     * 메인 화면 이동
      * @param model
      * @return
      */
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
+        public String index(Model model, @LoginUser SessionUser user) {
+        return "index";
+    }
+
+    /**
+     * 게시판 조회 화면 진입
+     */
+    @GetMapping("/findListBoard")
+    public String findListBoard(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
         // 아래 반복되던 코드 개선
@@ -41,7 +49,7 @@ public class IndexController {
             model.addAttribute("userData", resultMap);
         }
 
-        return "index";
+        return "board/findListBoard";
     }
 
     /**

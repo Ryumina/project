@@ -1,0 +1,43 @@
+
+<!-- S: header -->
+{{>layout/header}}
+<!-- E: header -->
+
+<div class="col-md-12">
+    <div class="row">
+        <div>
+            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+        </div>
+    </div>
+
+    <!-- 목록 조회 영역 -->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>게시글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>최종수정일</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr>
+                <td>{{id}}</td>
+                <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+                <td>{{author}}</td>
+                <td>{{modifiedDate}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+</div>
+
+<script src="/js/app/board/findListBoard.js"></script>
+
+<!-- S: footer -->
+{{>layout/footer}}
+<!-- E: footer -->
+
+
+
