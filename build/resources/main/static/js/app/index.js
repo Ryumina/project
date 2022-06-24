@@ -33,10 +33,9 @@ var main = {
            contentType: 'application/json; charset=utf-8',
            data: JSON.stringify(data)
         }).done(function () {
-            // ajax 호출이 끝난 후
-            alert('글이 등록되었습니다.');
+            alert('게시글이 등록되었습니다.');
 
-            window.location.href = '/';
+            window.location.href = '/findListBoard';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });

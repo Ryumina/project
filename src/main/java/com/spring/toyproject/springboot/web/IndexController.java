@@ -56,9 +56,9 @@ public class IndexController {
      * 게시글 등록 화면 이동
      * @return
      */
-    @GetMapping("/posts/save")
+    @GetMapping("/createBoard")
     public String postsSave() {
-        return "posts-save";
+        return "board/createBoard";
     }
 
     /**
@@ -74,5 +74,15 @@ public class IndexController {
         model.addAttribute("post", dto);
 
         return "posts-update";
+    }
+
+    @GetMapping("/findListProject")
+    public String findListProject(Model model) {
+        return "/project/findListProject";
+    }
+
+    @GetMapping("/findOneFirstProject")
+    public String findOneFirstProject(Model model) {
+        return "/project/first/index";
     }
 }
