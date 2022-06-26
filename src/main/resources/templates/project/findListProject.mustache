@@ -10,16 +10,30 @@
 </head>
 <body>
 
-    <h1>Project List</h1>
+    <div id="wrap">
+        <div id="content_wrap">
+            <div id="content">
+                <h1>Project List</h1>
+                <ul>
+                    <li style="--i:5;"><a href="#">Home</a></li>
+                    <li style="--i:4;"><a href="#">About</a></li>
+                    <li style="--i:3;"><a href="#">Services</a></li>
+                    <li style="--i:2;"><a href="#">Portfolio</a></li>
+                    <li style="--i:1;"><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <ul>
-        <li style="--i:5;"><a href="#">First</a></li>
-        <li style="--i:4;"><a href="#">Second</a></li>
-        <li style="--i:3;"><a href="#">third</a></li>
-        <li style="--i:2;"><a href="#">fourth</a></li>
-        <li style="--i:1;"><a href="#">Fifth</a></li>
-    </ul>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+            integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
+            crossorigin="anonymous"></script>
+    <script>
+        setTimeout(function() {
+            $('#content_wrap').animate({"bottom":"0"},2000,"easeInOutQuint");
+        });
+    </script>
 </body>
 </html>
 
