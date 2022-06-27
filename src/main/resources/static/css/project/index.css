@@ -55,7 +55,7 @@ ul li
 {
     position: relative;
     list-style: none;
-    width: 200px;
+    width: 150px;
     background: #3e3f46;
     padding: 15px;
     z-index: var(--i);
@@ -64,26 +64,7 @@ ul li
 ul li:hover
 {
     transform: translate(-50px);
-}
-ul li:nth-child(1):hover
-{
-    background: #f53b57;
-}
-ul li:nth-child(2):hover
-{
-    background: #3c40c6;
-}
-ul li:nth-child(3):hover
-{
-    background: #05c46b;
-}
-ul li:nth-child(4):hover
-{
-    background: #0fbcf9;
-}
-ul li:nth-child(5):hover
-{
-    background: #ffa801;
+    background: var(--clr);
 }
 ul li::before
 {
@@ -98,25 +79,10 @@ ul li::before
     transform: skewY(45deg);
     transition: 0.5s;
 }
-ul li:nth-child(1):hover::before
+ul li:hover::before
 {
-    background: #7e1a29;
-}
-ul li:nth-child(2):hover::before
-{
-    background: #20237b;
-}
-ul li:nth-child(3):hover::before
-{
-    background: #078048;
-}
-ul li:nth-child(4):hover::before
-{
-    background: #0a6e93;
-}
-ul li:nth-child(5):hover::before
-{
-    background: #a56d04;
+    background-color: var(--clr);
+    filter: brightness(0.7);
 }
 ul li::after
 {
@@ -126,30 +92,15 @@ ul li::after
     left: 0;
     width: 100%;
     height: 40px;
-    background: #35383e;
+    background: #3e3f46;
     transform-origin: bottom;
     transform: skewX(45deg);
     transition: 0.5s;
 }
-ul li:nth-child(1):hover::after
+ul li:hover::after
 {
-    background: #bd273e;
-}
-ul li:nth-child(2):hover::after
-{
-    background: #2c30a8;
-}
-ul li:nth-child(3):hover::after
-{
-    background: #07ae60;
-}
-ul li:nth-child(4):hover::after
-{
-    background: #0d91c1;
-}
-ul li:nth-child(5):hover::after
-{
-    background: #e79701;
+    background-color: var(--clr);
+    filter: brightness(0.9);
 }
 ul li a
 {
@@ -163,4 +114,29 @@ ul li a
 ul li:hover a
 {
     color: #fff;
+}
+ul li:last-child::after
+{
+    box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.25);
+}
+ul li span
+{
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 40px;
+    height: 100%;
+    filter: brightness(0.7);
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    font-size: 1.25em;
+}
+ul li:hover span
+{
+    opacity: 1;
 }
